@@ -1,0 +1,48 @@
+#include
+#include
+using namespace std;
+class Point {
+public:
+void setArray(int** arr, int Row, int Col) {
+
+for (int i = 0; i < Row; i++) {
+arr[i] = new int[Col];
+for (int g = 0; g < Col; g++) {
+arr[i][g] = rand() % 50;
+}
+}
+}
+void swap(int **arr,int **arr1,int Col,int Row) {
+
+for (int g = 0; g < Col; g++) {
+arr1[g] = new int[Row];
+for (int i = 0; i < Row; i++) {
+arr1[g][i] = arr[i][g];
+}
+}
+}
+};
+void main() {
+int Row = 4, Col = 2;
+srand(time(NULL));
+Point a;
+int** arr;
+int** arr1;
+arr1 = new int* [Col];
+arr = new int* [Row];
+a.setArray(arr, Row, Col);
+for (int i = 0; i < Row; i++) {
+for (int g = 0; g < Col; g++) {
+cout << arr[i][g] << "\t";
+}
+cout << endl;
+}
+a.swap(arr, arr1, Col, Row);
+cout << endl << endl;
+for (int g = 0; g < Col; g++) {
+for (int i= 0; i < Row; i++) {
+cout << arr1[g][i] << "\t";
+}
+cout << endl;
+}
+}
